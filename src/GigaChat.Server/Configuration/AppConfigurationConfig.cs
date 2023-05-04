@@ -1,0 +1,22 @@
+namespace GigaChat.Server.Configuration;
+
+public static class AppConfigurationConfig
+{
+    public static void Configure(
+        IConfigurationBuilder builder,
+        IHostEnvironment environment)
+    {
+        builder.SetBasePath(environment.ContentRootPath);
+
+        builder.AddYamlFile(
+            path: "appsettings.yaml",
+            optional: false,
+            reloadOnChange: true);
+
+        builder.AddYamlFile(
+            path: $"appsettings.{environment.EnvironmentName}.yaml",
+            optional: true,
+            reloadOnChange: false
+        );
+    }
+}

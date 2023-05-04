@@ -1,0 +1,14 @@
+Urls: http://localhost:5000
+AllowedHosts: "*"
+Serilog:
+  Using:
+    - "Serilog.Sinks.Console"
+    - "Serilog.Sinks.File"
+  MinimumLevel: "Information"
+  WriteTo:
+    - Name: "Console"
+    - Name: "File"
+      Args:
+        path: "logs.log"
+ConnectionStrings:
+  GigaChatDb: "Host=localhost;Port=5432;Database=GigaChatDb;Username=nanoster;Password=nanoster2"
