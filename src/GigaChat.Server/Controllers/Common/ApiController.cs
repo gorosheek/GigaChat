@@ -1,10 +1,12 @@
 ﻿using ErrorOr;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GigaChat.Server.Controllers.Common;
 
 [ApiController]
+[Authorize]
 public abstract class ApiController : ControllerBase
 {
     protected ActionResult Problem(IList<Error> errors)

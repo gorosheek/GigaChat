@@ -1,7 +1,6 @@
 ﻿using GigaChat.Contracts.Common.Routes;
 using GigaChat.Contracts.Users.Requests;
 using GigaChat.Contracts.Users.Responses;
-using GigaChat.Core.Users.Commands.Registration;
 using GigaChat.Core.Users.Commands.SoftDeleteUser;
 using GigaChat.Core.Users.Commands.UpdateUsername;
 using GigaChat.Core.Users.Queries.ListUsers;
@@ -35,14 +34,6 @@ public class UserController : ApiController
         if (result.IsError) return Problem(result.Errors);
         var response = _mapper.Map<IEnumerable<UserResponse>>(result.Value);
         return Ok(response);
-    }
-
-    [HttpPost]
-    public async Task<ActionResult> Registration(RegistrationUserRequest request, CancellationToken cancellationToken)
-    {
-        var command = _mapper.Map<RegistrationCommand>(request);
-        var result = await _sender.Send(command, cancellationToken);
-        return result.IsError ? Problem(result.Errors) : Created(string.Empty, null);
     }
 
     [HttpPatch]

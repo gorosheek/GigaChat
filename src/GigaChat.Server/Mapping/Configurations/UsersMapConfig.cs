@@ -1,7 +1,8 @@
+using GigaChat.Contracts.Authentication.Requests;
 using GigaChat.Contracts.Users.Requests;
 using GigaChat.Contracts.Users.Responses;
+using GigaChat.Core.Authentication.Commands.Registration;
 using GigaChat.Core.Entities.Users;
-using GigaChat.Core.Users.Commands.Registration;
 using GigaChat.Core.Users.Commands.SoftDeleteUser;
 using GigaChat.Core.Users.Commands.UpdateUsername;
 
@@ -15,7 +16,6 @@ public class UsersMapConfig : IRegister
     {
         config.NewConfig<UpdateUsernameCommand, UpdateUsernameRequest>();
         config.NewConfig<SoftDeleteUserCommand, SoftDeleteUserRequest>();
-        config.NewConfig<RegistrationCommand, RegistrationUserRequest>();
         config.NewConfig<User, UserResponse>();
     }
 }

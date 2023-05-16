@@ -2,17 +2,19 @@
 
 using GigaChat.Core.Common.Behaviors;
 using GigaChat.Core.Common.Services.Interfaces;
+using GigaChat.Core.Common.Services.Models;
 using GigaChat.Core.Common.Services.Realisations;
 
 using MediatR;
 
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GigaChat.Core;
 
 public static class Module
 {
-    public static IServiceCollection AddCore(this IServiceCollection services)
+    public static IServiceCollection AddCore(this IServiceCollection services, IConfiguration configuration)
     {
         var assembly = typeof(Module).Assembly;
 
@@ -24,9 +26,12 @@ public static class Module
 
         services.AddValidatorsFromAssembly(assembly);
 
+        services.AddScoped<IJwtTokenProvider, JwtTokenProvider>();
         services.AddScoped<IDateTimeProvider, DateTimeTimeProvider>();
         services.AddScoped<IPasswordHashProvider, PasswordHashProvider>();
 
+        services.Configure<JwtSettings>(configuration.GetSection(nameof(JwtSettings)));
+        
         return services;
     }
 }

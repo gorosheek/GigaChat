@@ -2,5 +2,5 @@
 
 public interface IDateTimeProvider
 {
-    Task<DateTimeOffset> GetUtcNowAsync();
+    Task<DateTimeOffset> GetUtcNowAsync(CancellationToken cancellationToken = default);
 }

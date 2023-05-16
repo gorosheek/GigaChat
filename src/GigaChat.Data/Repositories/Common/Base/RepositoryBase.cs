@@ -49,7 +49,7 @@ public abstract class RepositoryBase<TEntity, TId> : IRepository<TEntity, TId>
 
     public async Task InsertAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
-        var currentTime = await _dateTimeProvider.GetUtcNowAsync();
+        var currentTime = await _dateTimeProvider.GetUtcNowAsync(cancellationToken);
         entity.CreatedDate = currentTime;
         entity.UpdatedDate = currentTime;
         await _dbSet.AddAsync(entity, cancellationToken);
@@ -57,7 +57,7 @@ public abstract class RepositoryBase<TEntity, TId> : IRepository<TEntity, TId>
 
     public async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
-        entity.UpdatedDate = await _dateTimeProvider.GetUtcNowAsync();
+        entity.UpdatedDate = await _dateTimeProvider.GetUtcNowAsync(cancellationToken);
         _dbSet.Update(entity);
     }
 
@@ -74,5 +74,12 @@ public abstract class RepositoryBase<TEntity, TId> : IRepository<TEntity, TId>
     public async Task<bool> ExistsWithIdAsync(TId id, CancellationToken cancellationToken = default)
     {
         return await _dbSet.AnyAsync(e => e.Id!.Equals(id), cancellationToken);
+    }
+
+    public async Task<bool> ExistsAsync(Specification<TEntity>? spec = null, CancellationToken cancellationToken = default)
+    {
+        var query = _dbSet.AsQueryable();
+        if (spec != null) query = query.Where(spec);
+        return await query.AnyAsync(cancellationToken);
     }
 }
