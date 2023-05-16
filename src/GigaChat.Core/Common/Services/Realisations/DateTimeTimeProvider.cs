@@ -4,7 +4,7 @@ namespace GigaChat.Core.Common.Services.Realisations;
 
 public class DateTimeTimeProvider : IDateTimeProvider
 {
-    public Task<DateTimeOffset> GetUtcNowAsync()
+    public Task<DateTimeOffset> GetUtcNowAsync(CancellationToken cancellationToken = default)
     {
         return Task.FromResult(DateTimeOffset.UtcNow);
     }

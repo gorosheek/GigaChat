@@ -1,11 +1,13 @@
 using GigaChat.Contracts.Common.Routes;
 using GigaChat.Core;
 using GigaChat.Data;
+using GigaChat.Server.Authentication;
 using GigaChat.Server.Configuration;
 using GigaChat.Server.HealthChecking;
 using GigaChat.Server.Logging;
 using GigaChat.Server.Mapping;
 using GigaChat.Server.ProblemDetails;
+using GigaChat.Server.Swagger;
 
 using Hellang.Middleware.ProblemDetails;
 
@@ -25,14 +27,15 @@ var host = builder.Host;
 
 var services = builder.Services;
 {
-    services.AddCore();
+    services.AddCore(configuration);
     services.AddData(configuration);
     services.AddMapper();
     services.AddHealthChecking();
+    services.AddGigaChatAuthentication(configuration);
     services.AddProblemDetails(ProblemDetailsConfig.Configure);
     services.AddControllers();
     services.AddEndpointsApiExplorer();
-    services.AddSwaggerGen();
+    services.AddSwaggerGen(options => SwaggerGenConfig.Configure(options, configuration));
 }
 
 var app = builder.Build();
@@ -50,6 +53,7 @@ var app = builder.Build();
         app.UseExceptionHandler(ServerRoutes.Controllers.ErrorController);
     }
 
+    app.UseAuthentication();
     app.UseAuthorization();
 
     app.MapHealthChecks(ServerRoutes.HealthCheck, HealthCheckingConfig.Options);
