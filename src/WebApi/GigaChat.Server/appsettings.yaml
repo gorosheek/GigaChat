@@ -1,0 +1,25 @@
+Urls: "http://+:5000"
+AllowedHosts: "*"
+Serilog:
+  Using:
+    - "Serilog.Sinks.Console"
+    - "Serilog.Sinks.File"
+  MinimumLevel: "Information"
+  WriteTo:
+    - Name: "Console"
+    - Name: "File"
+      Args:
+        path: "logs.log"
+ConnectionStrings:
+  GigaChatDb: "Host=localhost;Port=5432;Database=ExampleDbName;Username=ExampleUsername;Password=ExamplePassword"
+JwtSettings:
+  Issuer: "http://localhost:5000"
+  Audience: "http://localhost:5000"
+  Secret: "belebegvhbjkl;'kjhgdfshuiopioufdfsdgfhdfjkkljvcvbnb"
+  ExpiryMinutes: 5000
+SwaggerGen:
+  Title: "GigaChat API"
+  Description: "Web Api сервер для GigaChat"
+  Contact:
+    Name: "Команда фриков"
+    Url: "https://google.com"

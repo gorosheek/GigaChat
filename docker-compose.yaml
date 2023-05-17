@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  gigachat_db:
+    container_name: gigachat_db
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: GigaChatDb
+      POSTGRES_USER: gcAdmin
+      POSTGRES_PASSWORD: gcAdminPassword
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d GigaChatDb -p 5432 -U gcAdmin"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  gigachat_api:
+    container_name: gigachat_api
+    build: ./src/WebApi
+    ports:
+      - "5000:5000"
+    environment:
+      ConnectionStrings__GigaChatDb: Host=gigachat_db;Port=5432;Database=GigaChatDb;Username=gcAdmin;Password=gcAdminPassword
+    depends_on: 
+      gigachat_db:
+        condition: service_healthy
+  nginx:
+    container_name: nginx
+    build: 
+      context: .
+      dockerfile: .docker/nginx/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - gigachat_api

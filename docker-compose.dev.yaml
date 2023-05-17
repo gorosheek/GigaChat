@@ -1,0 +1,56 @@
+version: "3.8"
+
+services:
+  gigachat_db:
+    container_name: gigachat_db_dev
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: GigaChatDb
+      POSTGRES_USER: gcAdmin
+      POSTGRES_PASSWORD: gcAdminPassword
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d GigaChatDb -p 5432 -U gcAdmin"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  gigachat_api:
+    container_name: gigachat_api_dev
+    image: mcr.microsoft.com/dotnet/sdk:7.0
+    ports:
+      - "5000:5000"
+    environment:
+      ConnectionStrings__GigaChatDb: Host=gigachat_db;Port=5432;Database=GigaChatDb;Username=gcAdmin;Password=gcAdminPassword
+    volumes:
+      - ./src/WebApi:/WebApi:rw
+    working_dir: /WebApi
+    depends_on: 
+      gigachat_db:
+        condition: service_healthy
+    command: >
+      bash -c "
+      dotnet tool restore &&
+      dotnet ef database update --project GigaChat.Migrations &&
+      dotnet watch --project GigaChat.Server
+      "
+  gigachat_client:
+    container_name: gigachat_client_dev
+    image: node:latest
+    volumes:
+      - ./src/WebClient:/WebClient:rw
+    working_dir: /WebClient
+    command: >
+      bash -c "
+      npm i &&
+      npm run start
+      "
+  nginx:
+    container_name: nginx_dev
+    build: 
+      context: .
+      dockerfile: ./.docker/nginx/Dockerfile.dev
+    ports:
+      - "80:80"
+    depends_on:
+      - gigachat_api
+      - gigachat_client

@@ -1,0 +1,2 @@
+ConnectionStrings:
+  GigaChatDb: "Host=localhost;Port=5432;Database=ExampleDbName;Username=ExampleUsername;Password=ExamplePassword"

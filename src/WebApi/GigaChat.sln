@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GigaChat.Contracts", "GigaChat.Contracts\GigaChat.Contracts.csproj", "{00EC47BE-722A-4AAA-870E-E049072E9C39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GigaChat.Core", "GigaChat.Core\GigaChat.Core.csproj", "{925F9AAA-9AE2-41C2-BA7B-52E411576987}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GigaChat.Data", "GigaChat.Data\GigaChat.Data.csproj", "{449826BE-B277-4E63-AD9A-85BB30F813B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GigaChat.Migrations", "GigaChat.Migrations\GigaChat.Migrations.csproj", "{D5BA4BD6-27DE-4A5B-B8D6-A952913C4AF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GigaChat.Server", "GigaChat.Server\GigaChat.Server.csproj", "{4701CD3E-87AB-4DE4-A238-BC2579CDF987}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00EC47BE-722A-4AAA-870E-E049072E9C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00EC47BE-722A-4AAA-870E-E049072E9C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00EC47BE-722A-4AAA-870E-E049072E9C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00EC47BE-722A-4AAA-870E-E049072E9C39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{925F9AAA-9AE2-41C2-BA7B-52E411576987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{925F9AAA-9AE2-41C2-BA7B-52E411576987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{925F9AAA-9AE2-41C2-BA7B-52E411576987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{925F9AAA-9AE2-41C2-BA7B-52E411576987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{449826BE-B277-4E63-AD9A-85BB30F813B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{449826BE-B277-4E63-AD9A-85BB30F813B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{449826BE-B277-4E63-AD9A-85BB30F813B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{449826BE-B277-4E63-AD9A-85BB30F813B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5BA4BD6-27DE-4A5B-B8D6-A952913C4AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5BA4BD6-27DE-4A5B-B8D6-A952913C4AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5BA4BD6-27DE-4A5B-B8D6-A952913C4AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5BA4BD6-27DE-4A5B-B8D6-A952913C4AF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4701CD3E-87AB-4DE4-A238-BC2579CDF987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4701CD3E-87AB-4DE4-A238-BC2579CDF987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4701CD3E-87AB-4DE4-A238-BC2579CDF987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4701CD3E-87AB-4DE4-A238-BC2579CDF987}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
