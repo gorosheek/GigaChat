@@ -2,7 +2,7 @@ using ErrorOr;
 
 using GigaChat.Core.Common.Repositories.Interfaces;
 using GigaChat.Core.Common.Specifications.ChatMessages;
-using GigaChat.Core.Entities.ChatMessages;
+using GigaChat.Core.Common.Entities.ChatMessages;
 
 using MediatR;
 

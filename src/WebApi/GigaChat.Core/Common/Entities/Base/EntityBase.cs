@@ -1,6 +1,6 @@
 ﻿using GigaChat.Core.Common.Repositories.Common.Interfaces;
 
-namespace GigaChat.Core.Entities.Base;
+namespace GigaChat.Core.Common.Entities.Base;
 
 public abstract class EntityBase<TId> : IEntity<TId>
     where TId : IEquatable<TId>

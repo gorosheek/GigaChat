@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-using GigaChat.Core.Entities.ChatRooms;
+using GigaChat.Core.Common.Entities.ChatRooms;
 
 using LinqSpecs;
 

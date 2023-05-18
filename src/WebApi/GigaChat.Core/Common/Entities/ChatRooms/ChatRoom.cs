@@ -1,7 +1,7 @@
-﻿using GigaChat.Core.Entities.Base;
-using GigaChat.Core.Entities.Users;
+﻿using GigaChat.Core.Common.Entities.Base;
+using GigaChat.Core.Common.Entities.Users;
 
-namespace GigaChat.Core.Entities.ChatRooms;
+namespace GigaChat.Core.Common.Entities.ChatRooms;
 
 public class ChatRoom : EntityBase<long>
 {

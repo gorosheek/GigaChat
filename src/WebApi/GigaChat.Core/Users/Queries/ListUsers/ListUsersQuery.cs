@@ -1,6 +1,6 @@
 using ErrorOr;
 
-using GigaChat.Core.Entities.Users;
+using GigaChat.Core.Common.Entities.Users;
 
 using MediatR;
 

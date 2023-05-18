@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 
-using GigaChat.Core.Entities.ChatMessages;
-using GigaChat.Core.Entities.ChatRooms;
-using GigaChat.Core.Entities.Users;
+using GigaChat.Core.Common.Entities.ChatMessages;
+using GigaChat.Core.Common.Entities.ChatRooms;
+using GigaChat.Core.Common.Entities.Users;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -12,7 +12,7 @@ namespace GigaChat.Data;
 public class GigaChatDbContext : DbContext
 {
     public const string ConnectionStringName = "GigaChatDb";
-    
+
     public static void Configure(
         DbContextOptionsBuilder optionsBuilder,
         IConfiguration configuration,

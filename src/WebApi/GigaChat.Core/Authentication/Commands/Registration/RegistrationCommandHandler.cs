@@ -4,7 +4,7 @@ using GigaChat.Core.Common.Repositories.Common.Interfaces;
 using GigaChat.Core.Common.Repositories.Interfaces;
 using GigaChat.Core.Common.Services.Interfaces;
 using GigaChat.Core.Common.Specifications.Users;
-using GigaChat.Core.Entities.Users;
+using GigaChat.Core.Common.Entities.Users;
 
 using MediatR;
 
@@ -40,7 +40,7 @@ public class RegistrationCommandHandler : IRequestHandler<RegistrationCommand, E
 
         await _userRepository.InsertAsync(user, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
-        
+
         var token = await _jwtTokenProvider.GenerateTokenAsync(user, cancellationToken);
 
         return new RegistrationResult(token);

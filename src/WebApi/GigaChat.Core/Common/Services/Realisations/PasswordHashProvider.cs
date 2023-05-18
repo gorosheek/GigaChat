@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 
 using GigaChat.Core.Common.Services.Interfaces;
-using GigaChat.Core.Entities.Users;
+using GigaChat.Core.Common.Entities.Users;
 
 namespace GigaChat.Core.Common.Services.Realisations;
 

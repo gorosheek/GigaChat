@@ -1,4 +1,4 @@
-﻿using GigaChat.Core.Entities.Users;
+﻿using GigaChat.Core.Common.Entities.Users;
 
 namespace GigaChat.Core.Common.Services.Interfaces;
 

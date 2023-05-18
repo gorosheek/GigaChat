@@ -1,4 +1,4 @@
-﻿using GigaChat.Core.Entities.ChatRooms;
+﻿using GigaChat.Core.Common.Entities.ChatRooms;
 using GigaChat.Data.Configurations.Base;
 
 using Microsoft.EntityFrameworkCore;

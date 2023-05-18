@@ -1,8 +1,6 @@
-using GigaChat.Contracts.Authentication.Requests;
 using GigaChat.Contracts.Users.Requests;
 using GigaChat.Contracts.Users.Responses;
-using GigaChat.Core.Authentication.Commands.Registration;
-using GigaChat.Core.Entities.Users;
+using GigaChat.Core.Common.Entities.Users;
 using GigaChat.Core.Users.Commands.SoftDeleteUser;
 using GigaChat.Core.Users.Commands.UpdateUsername;
 

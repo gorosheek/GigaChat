@@ -1,6 +1,6 @@
 ﻿using GigaChat.Core.Common.Repositories.Common.Interfaces;
 using GigaChat.Core.Common.Services.Interfaces;
-using GigaChat.Core.Entities.Base;
+using GigaChat.Core.Common.Entities.Base;
 
 using LinqSpecs;
 

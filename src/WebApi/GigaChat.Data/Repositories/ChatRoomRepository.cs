@@ -1,6 +1,6 @@
 ﻿using GigaChat.Core.Common.Repositories.Interfaces;
 using GigaChat.Core.Common.Services.Interfaces;
-using GigaChat.Core.Entities.ChatRooms;
+using GigaChat.Core.Common.Entities.ChatRooms;
 using GigaChat.Data.Repositories.Common.Base;
 
 namespace GigaChat.Data.Repositories;

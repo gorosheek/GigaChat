@@ -3,8 +3,7 @@ using GigaChat.Contracts.ChatRooms.Responses;
 using GigaChat.Core.ChatRooms.Commands.CreateChatRoom;
 using GigaChat.Core.ChatRooms.Commands.SoftDeleteChatRoom;
 using GigaChat.Core.ChatRooms.Commands.UpdateChatRoomTitle;
-using GigaChat.Core.ChatRooms.Queries.ListChatRooms;
-using GigaChat.Core.Entities.ChatRooms;
+using GigaChat.Core.Common.Entities.ChatRooms;
 
 using Mapster;
 

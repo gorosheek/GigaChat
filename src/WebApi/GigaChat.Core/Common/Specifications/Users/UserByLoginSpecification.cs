@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-using GigaChat.Core.Entities.Users;
+using GigaChat.Core.Common.Entities.Users;
 
 using LinqSpecs;
 
@@ -14,7 +14,7 @@ public class UserByLoginSpecification : Specification<User>
     {
         _userLogin = userLogin;
     }
-    
+
     public override Expression<Func<User, bool>> ToExpression()
     {
         return user => user.Login == _userLogin;

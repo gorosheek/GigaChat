@@ -1,4 +1,4 @@
-﻿using GigaChat.Core.Entities.Base;
+﻿using GigaChat.Core.Common.Entities.Base;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -17,7 +17,7 @@ public abstract class EntityConfigurationBase<TEntity, TId> : IEntityTypeConfigu
 
         builder.Property(e => e.UpdatedDate)
             .IsRequired();
-        
+
         OnConfigure(builder);
     }
 

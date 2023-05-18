@@ -1,6 +1,6 @@
-﻿using GigaChat.Core.Entities.ChatMessages;
-using GigaChat.Core.Entities.ChatRooms;
-using GigaChat.Core.Entities.Users;
+﻿using GigaChat.Core.Common.Entities.ChatMessages;
+using GigaChat.Core.Common.Entities.ChatRooms;
+using GigaChat.Core.Common.Entities.Users;
 using GigaChat.Data.Configurations.Base;
 
 using Microsoft.EntityFrameworkCore;
@@ -14,12 +14,12 @@ public class ChatMessageConfiguration : EntityConfigurationBase<ChatMessage, lon
     {
         builder.Property(m => m.Text)
             .IsRequired();
-        
+
         builder.HasOne<User>()
             .WithMany()
             .HasForeignKey(m => m.UserId)
             .IsRequired();
-        
+
         builder.HasOne<ChatRoom>()
             .WithMany()
             .HasForeignKey(m => m.ChatRoomId)

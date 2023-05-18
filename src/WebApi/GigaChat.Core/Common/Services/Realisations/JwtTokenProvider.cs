@@ -4,7 +4,7 @@ using System.Text;
 
 using GigaChat.Core.Common.Services.Interfaces;
 using GigaChat.Core.Common.Services.Models;
-using GigaChat.Core.Entities.Users;
+using GigaChat.Core.Common.Entities.Users;
 
 using IdentityModel;
 
@@ -23,7 +23,7 @@ public class JwtTokenProvider : IJwtTokenProvider
         _jwtSettings = jwtSettings.Value;
         _dateTimeProvider = dateTimeProvider;
     }
-    
+
     public async Task<string> GenerateTokenAsync(User user, CancellationToken cancellationToken = default)
     {
         var claims = new List<Claim>
@@ -34,7 +34,7 @@ public class JwtTokenProvider : IJwtTokenProvider
         };
 
         var currentTime = await _dateTimeProvider.GetUtcNowAsync(cancellationToken);
-        
+
         var jwt = new JwtSecurityToken(
             issuer: _jwtSettings.Issuer,
             audience: _jwtSettings.Audience,
