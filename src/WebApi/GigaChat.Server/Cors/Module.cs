@@ -6,15 +6,11 @@ public static class Module
 {
     public static IServiceCollection AddGigaChatCors(
         this IServiceCollection services,
-        IConfiguration configuration,
-        IHostEnvironment environment)
+        IConfiguration configuration)
     {
         services.AddCors(options =>
         {
-            if (environment.IsDevelopment())
-            {
-                options.AddDevPolicy();
-            }
+            options.AddDevPolicy();
         });
 
         return services;

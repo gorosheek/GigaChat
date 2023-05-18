@@ -36,7 +36,7 @@ var services = builder.Services;
     services.AddHealthChecking();
     services.AddGigaChatAuthentication(configuration);
     services.AddGigaChatSignalR();
-    services.AddGigaChatCors(configuration, builder.Environment);
+    services.AddGigaChatCors(configuration);
     services.AddProblemDetails(ProblemDetailsConfig.Configure);
     services.AddControllers();
     services.AddEndpointsApiExplorer();
@@ -46,6 +46,11 @@ var services = builder.Services;
 var app = builder.Build();
 {
     app.UseProblemDetails();
+
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseCors(DevCorsPolicy.PolicyName);
+    }
 
     app.UseStaticFiles();
 
@@ -59,8 +64,6 @@ var app = builder.Build();
     {
         app.UseExceptionHandler(ServerRoutes.Controllers.ErrorController);
     }
-
-    app.UseCors(DevCorsPolicy.PolicyName);
 
     app.UseAuthentication();
     app.UseAuthorization();
