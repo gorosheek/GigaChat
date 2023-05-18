@@ -4,7 +4,7 @@ COPY ../../src/WebClient/package*.json /WebClient
 RUN npm install
 COPY ../../src/WebClient /WebClient
 RUN npm run build
-COPY ../../.docker/nginx/configs /nginx/conf.d
+COPY ./configs /nginx/conf.d
 
 FROM nginx:latest
 COPY --from=build-stage /WebClient/build/ /WebClient

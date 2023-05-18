@@ -24,7 +24,7 @@ root.render(
     </React.StrictMode>
 );
 async function fetchDanilku() {
-        const superData = await axios.get('http://localhost/api/error')
+        const superData = await axios.get('http://localhost:5000/api/error')
         console.log('fetched data ---', superData)
     }
 fetchDanilku().then()
@@ -32,4 +32,3 @@ console.log([
     ["route", window.location.pathname],
     ["location ---", window.location],
 ])
-console.log("AMOGUS")

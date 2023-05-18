@@ -3,6 +3,8 @@ using GigaChat.Core;
 using GigaChat.Data;
 using GigaChat.Server.Authentication;
 using GigaChat.Server.Configuration;
+using GigaChat.Server.Cors;
+using GigaChat.Server.Cors.Policies;
 using GigaChat.Server.HealthChecking;
 using GigaChat.Server.Logging;
 using GigaChat.Server.Mapping;
@@ -34,6 +36,7 @@ var services = builder.Services;
     services.AddHealthChecking();
     services.AddGigaChatAuthentication(configuration);
     services.AddGigaChatSignalR();
+    services.AddGigaChatCors(configuration, builder.Environment);
     services.AddProblemDetails(ProblemDetailsConfig.Configure);
     services.AddControllers();
     services.AddEndpointsApiExplorer();
@@ -56,6 +59,8 @@ var app = builder.Build();
     {
         app.UseExceptionHandler(ServerRoutes.Controllers.ErrorController);
     }
+
+    app.UseCors(DevCorsPolicy.PolicyName);
 
     app.UseAuthentication();
     app.UseAuthorization();

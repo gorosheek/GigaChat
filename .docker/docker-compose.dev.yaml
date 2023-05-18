@@ -9,11 +9,6 @@ services:
       POSTGRES_DB: GigaChatDb
       POSTGRES_USER: gcAdmin
       POSTGRES_PASSWORD: gcAdminPassword
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -d GigaChatDb -p 5432 -U gcAdmin"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
   gigachat_api:
     container_name: gigachat_api_dev
     image: mcr.microsoft.com/dotnet/sdk:7.0
@@ -22,11 +17,10 @@ services:
     environment:
       ConnectionStrings__GigaChatDb: Host=gigachat_db;Port=5432;Database=GigaChatDb;Username=gcAdmin;Password=gcAdminPassword
     volumes:
-      - ./src/WebApi:/WebApi:rw
+      - ../src/WebApi:/WebApi:rw
     working_dir: /WebApi
     depends_on: 
-      gigachat_db:
-        condition: service_healthy
+      - gigachat_db
     command: >
       bash -c "
       dotnet tool restore &&
@@ -37,7 +31,7 @@ services:
     container_name: gigachat_client_dev
     image: node:latest
     volumes:
-      - ./src/WebClient:/WebClient:rw
+      - ../src/WebClient:/WebClient
     working_dir: /WebClient
     command: >
       bash -c "
@@ -47,8 +41,8 @@ services:
   nginx:
     container_name: nginx_dev
     build: 
-      context: .
-      dockerfile: ./.docker/nginx/Dockerfile.dev
+      context: ./nginx
+      dockerfile: ./Dockerfile.dev
     ports:
       - "80:80"
     depends_on:

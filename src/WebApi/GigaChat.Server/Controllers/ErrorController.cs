@@ -1,6 +1,7 @@
 using GigaChat.Contracts.Common.Routes;
 using GigaChat.Server.Controllers.Common;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GigaChat.Server.Controllers;
@@ -9,6 +10,7 @@ namespace GigaChat.Server.Controllers;
 public class ErrorController : ApiController
 {
     [HttpGet]
+    [AllowAnonymous]
     public ActionResult Error()
     {
         return Problem();

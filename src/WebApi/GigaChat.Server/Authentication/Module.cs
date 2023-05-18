@@ -8,11 +8,11 @@ public static class Module
     {
         var builder = services.AddAuthentication(options =>
         {
-            options.DefaultScheme = JwtScheme.AuthenticationScheme;
+            options.DefaultScheme = JwtScheme.SchemeName;
         });
 
-        builder.AddJwtBearer(JwtScheme.AuthenticationScheme, options => JwtScheme.Configure(options, configuration));
+        builder.AddJwtScheme(configuration);
 
         return services;
-    } 
+    }
 }
