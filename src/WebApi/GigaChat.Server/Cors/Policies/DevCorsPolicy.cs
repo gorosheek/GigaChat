@@ -6,7 +6,7 @@ public static class DevCorsPolicy
 {
     public const string PolicyName = "WebClientDev";
 
-    public static void AddDevPolicy(this CorsOptions corsOptions)
+    public static void AddDevCorsPolicy(this CorsOptions corsOptions)
     {
         corsOptions.AddPolicy(PolicyName, policy => policy.AllowAnyOrigin());
     }

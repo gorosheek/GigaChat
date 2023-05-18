@@ -36,7 +36,7 @@ var services = builder.Services;
     services.AddHealthChecking();
     services.AddGigaChatAuthentication(configuration);
     services.AddGigaChatSignalR();
-    services.AddGigaChatCors(configuration);
+    services.AddGigaChatCors();
     services.AddProblemDetails(ProblemDetailsConfig.Configure);
     services.AddControllers();
     services.AddEndpointsApiExplorer();
@@ -47,10 +47,7 @@ var app = builder.Build();
 {
     app.UseProblemDetails();
 
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseCors(DevCorsPolicy.PolicyName);
-    }
+    app.UseGigaChatCors(builder.Environment);
 
     app.UseStaticFiles();
 

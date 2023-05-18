@@ -19,7 +19,11 @@ public static class AppConfigurationConfig
             reloadOnChange: false
         );
 
-        builder.AddUserSecrets<Program>();
+        if (environment.IsDevelopment())
+        {
+            builder.AddUserSecrets<Program>();
+        }
+
         builder.AddEnvironmentVariables();
     }
 }
