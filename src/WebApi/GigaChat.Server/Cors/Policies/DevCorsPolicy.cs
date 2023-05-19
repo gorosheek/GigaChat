@@ -8,6 +8,11 @@ public static class DevCorsPolicy
 
     public static void AddDevCorsPolicy(this CorsOptions corsOptions)
     {
-        corsOptions.AddPolicy(PolicyName, policy => policy.AllowAnyOrigin());
+        corsOptions.AddPolicy(PolicyName, policy =>
+        {
+            policy.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
     }
 }
