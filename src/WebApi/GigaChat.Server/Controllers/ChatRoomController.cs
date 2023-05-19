@@ -1,5 +1,5 @@
-﻿using GigaChat.Contracts.ChatRooms.Requests;
-using GigaChat.Contracts.ChatRooms.Responses;
+﻿using GigaChat.Contracts.Http.ChatRooms.Requests;
+using GigaChat.Contracts.Http.ChatRooms.Responses;
 using GigaChat.Contracts.Common.Routes;
 using GigaChat.Core.ChatRooms.Commands.CreateChatRoom;
 using GigaChat.Core.ChatRooms.Commands.SoftDeleteChatRoom;

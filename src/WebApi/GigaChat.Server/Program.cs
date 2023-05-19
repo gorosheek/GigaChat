@@ -4,7 +4,6 @@ using GigaChat.Data;
 using GigaChat.Server.Authentication;
 using GigaChat.Server.Configuration;
 using GigaChat.Server.Cors;
-using GigaChat.Server.Cors.Policies;
 using GigaChat.Server.HealthChecking;
 using GigaChat.Server.Logging;
 using GigaChat.Server.Mapping;
@@ -67,6 +66,7 @@ var app = builder.Build();
 
     app.MapHealthChecks(ServerRoutes.HealthCheck, HealthCheckingConfig.Options);
     app.MapControllers();
+    app.MapHubs();
 }
 
 app.Run();

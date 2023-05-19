@@ -14,6 +14,7 @@ public static class SwaggerGenConfig
         AddSwaggerDoc(options, configuration);
         AddSecurityDefinition(options, configuration);
         options.SupportNonNullableReferenceTypes();
+        options.AddSignalRSwaggerGen();
     }
 
     private static void AddSecurityDefinition(SwaggerGenOptions options, IConfiguration config)
@@ -43,7 +44,7 @@ public static class SwaggerGenConfig
             }
         });
     }
-    
+
     private static void AddSwaggerDoc(SwaggerGenOptions options, IConfiguration configuration)
     {
         var swaggerGenOptions = configuration.GetSection(SwaggerGenSettings.SectionName)

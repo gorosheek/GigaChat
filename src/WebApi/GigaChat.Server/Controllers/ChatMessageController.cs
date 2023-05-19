@@ -1,5 +1,5 @@
-﻿using GigaChat.Contracts.ChatMessages.Requests;
-using GigaChat.Contracts.ChatMessages.Responses;
+﻿using GigaChat.Contracts.Http.ChatMessages.Requests;
+using GigaChat.Contracts.Http.ChatMessages.Responses;
 using GigaChat.Contracts.Common.Routes;
 using GigaChat.Core.ChatMessages.Commands.CreateChatMessage;
 using GigaChat.Core.ChatMessages.Queries.ListChatMessages;

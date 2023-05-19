@@ -1,4 +1,4 @@
-Urls: "http://+:5000"
+Urls: ["http://localhost:5000", "http://+:5000"]
 AllowedHosts: "*"
 Serilog:
   Using:

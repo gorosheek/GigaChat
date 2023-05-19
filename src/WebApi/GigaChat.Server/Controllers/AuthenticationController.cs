@@ -1,5 +1,5 @@
-﻿using GigaChat.Contracts.Authentication.Requests;
-using GigaChat.Contracts.Authentication.Responses;
+﻿using GigaChat.Contracts.Http.Authentication.Requests;
+using GigaChat.Contracts.Http.Authentication.Responses;
 using GigaChat.Contracts.Common.Routes;
 using GigaChat.Core.Authentication.Commands.Registration;
 using GigaChat.Core.Authentication.Queries.Login;

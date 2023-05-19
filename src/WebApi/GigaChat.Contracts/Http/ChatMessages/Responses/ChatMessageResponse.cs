@@ -1,3 +1,3 @@
-namespace GigaChat.Contracts.ChatMessages.Responses;
+namespace GigaChat.Contracts.Http.ChatMessages.Responses;
 
 public record ChatMessageResponse(long Id, string Text, long ChatRoomId, Guid UserId);
